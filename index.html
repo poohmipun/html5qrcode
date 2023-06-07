@@ -37,7 +37,8 @@
                     await liff.init({ liffId });
                     if (!(await liff.isLoggedIn())) {
                         const redirectUri = getRedirectUri();
-                        liff.login({ redirectUri: baseUri });
+                        console.log(redirectUri)
+                        liff.login({ redirectUri });
                     }
                 } catch (error) {
                     console.log(error)
