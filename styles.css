@@ -128,8 +128,8 @@ section {
   font-size: 1.3rem;
 }
 a.my-button {
-  background: linear-gradient(to right, #196bca, #6433e0);
-  background-color: #196bca;
+  background: linear-gradient(to right, #ca1919, #e0c033);
+  background-color: #ca1919;
   color: #fff;
   font-family: Trebuchet MS;
   font-size: 18px;
@@ -149,15 +149,15 @@ a.my-button span {
   display: block;
   width: 29px;
   height: 29px;
-  background-image: url(./qr.png);
+  background-image: url(./qr-code.png);
   background-repeat: no-repeat;
   background-size: contain;
   transform: rotate(0deg);
 }
 
 a.my-button:hover {
-  background: linear-gradient(to right, #5482d0, #7d5ee3);
-  background-color: #5482d0;
+  background: linear-gradient(to right, #d05454, #e3b95e);
+  background-color: #d05454;
 }
 a.my-button:active {
   transform: scale(0.95);
