@@ -29,46 +29,16 @@
         integrity = "sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin = "anonymous" ></script>
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <script src="https://unpkg.com/html5-qrcode"></script>
     <script>
-            /*      function docReady(fn) {
-                     // see if DOM is already available
-                     if (document.readyState === "complete"
-                         || document.readyState === "interactive") {
-                         // call on next available tick
-                         setTimeout(fn, 1);
-                     } else {
-                         document.addEventListener("DOMContentLoaded", fn);
-                     }
-                 }
-     
-             docReady(function () {
-                 var resultContainer = document.getElementById('qr-reader-results');
-                 var lastResult, countResults = 0;
-                 function onScanSuccess(decodedText, decodedResult) {
-                     if (decodedText !== lastResult) {
-                         ++countResults;
-                         lastResult = decodedText;
-                         // Handle on success condition with the decoded message.
-                         console.log(`Scan result ${decodedText}`, decodedResult);
-                     }
-                 }
-     
-                 var html5QrcodeScanner = new Html5QrcodeScanner(
-                     "qr-reader", { fps: 10, qrbox: 250 });
-                 html5QrcodeScanner.render(onScanSuccess);
-             }); */
             async function main() {
+                const liffId = '1661306848-yPVLVojM';
+
                 try {
-                    const liffId = '1661306848-yPVLVojM';
                     await liff.init({ liffId });
-
-                    if (await liff.isLoggedIn()) {
-                        return;
+                    if (!(await liff.isLoggedIn())) {
+                        const redirectUri = getRedirectUri();
+                        liff.login({ redirectUri });
                     }
-
-                    const redirectUri = getRedirectUri();
-                    liff.login({ redirectUri });
                 } catch (error) {
                     // Handle initialization or login errors
                 }
@@ -79,9 +49,9 @@
             return baseUri;
         }
 
-
-        main()
+        main();
     </script>
+
 </body>
 
 </html>
