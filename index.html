@@ -14,6 +14,7 @@
 </head>
 
 <body class="bg-dark">
+    <div id="reader" width="600px"></div>
     <div class="container">
         <div class="card" style="width: 18rem;">
             <img id="imageid" src="./qr-code.png" class="card-img-top" alt="...">
@@ -29,13 +30,32 @@
         integrity = "sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin = "anonymous" ></script>
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <script>
-            async function main() {
-                await liff.init({ liffId: '1661306848-QNJMJ1qR' });
-                if (!liff.isLoggedIn()) {
-                    liff.login()
-                }
+            function onScanSuccess(decodedText, decodedResult) {
+                // handle the scanned code as you like, for example:
+                console.log(`Code matched = ${decodedText}`, decodedResult);
             }
+
+        function onScanFailure(error) {
+            // handle scan failure, usually better to ignore and keep scanning.
+            // for example:
+            console.warn(`Code scan error = ${error}`);
+        }
+
+        let html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader",
+            { fps: 10, qrbox: { width: 250, height: 250 } },
+  /* verbose= */ false);
+        async function scan() {
+            html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+        }
+        async function main() {
+            await liff.init({ liffId: '1661306848-QNJMJ1qR' });
+            if (!liff.isLoggedIn()) {
+                liff.login()
+            }
+        }
         main()
     </script>
 
