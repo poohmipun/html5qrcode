@@ -40,12 +40,12 @@
                         liff.login({ redirectUri });
                     }
                 } catch (error) {
-                    // Handle initialization or login errors
+                    console.log(error)
                 }
             }
 
         function getRedirectUri() {
-            const baseUri = "https://htmlqrcodetest.netlify.app/";
+            const baseUri = "https://htmlqrcodetest.netlify.app";
             return baseUri;
         }
 
