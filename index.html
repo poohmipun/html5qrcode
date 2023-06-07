@@ -36,26 +36,19 @@
                 // handle the scanned code as you like, for example:
                 console.log(`Code matched = ${decodedText}`, decodedResult);
             }
-
-        function onScanFailure(error) {
-            // handle scan failure, usually better to ignore and keep scanning.
-            // for example:
+        /* function onScanFailure(error) {
             console.warn(`Code scan error = ${error}`);
         }
 
         let html5QrcodeScanner = new Html5QrcodeScanner(
             "reader",
-            { fps: 10, qrbox: { width: 250, height: 250 } },
-  /* verbose= */ false);
-        async function scan() {
-            html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-        }
+            { fps: 10, qrbox: { width: 250, height: 250 } }, false);
         async function main() {
             await liff.init({ liffId: '1661306848-QNJMJ1qR' });
             if (!liff.isLoggedIn()) {
                 liff.login()
             }
-        }
+        } */
         main()
     </script>
 
