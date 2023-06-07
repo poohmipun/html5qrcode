@@ -61,7 +61,7 @@
         async function main() {
             await liff.init({ liffId: '1661306848-yPVLVojM' });
             if (!liff.isLoggedIn()) {
-                liff.login({ redirectUri: "https://htmlqrcodetest.netlify.app/" })
+                liff.login({ redirectUri: window.location.href })
             }
         }
         main()
