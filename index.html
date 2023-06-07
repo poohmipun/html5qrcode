@@ -59,11 +59,26 @@
                  html5QrcodeScanner.render(onScanSuccess);
              }); */
             async function main() {
-                await liff.init({ liffId: '1661306848-yPVLVojM' });
-                if (!liff.isLoggedIn()) {
-                    liff.login({ redirectUri: "https://htmlqrcodetest.netlify.app" })
+                try {
+                    const liffId = '1661306848-yPVLVojM';
+                    await liff.init({ liffId });
+
+                    if (await liff.isLoggedIn()) {
+                        return;
+                    }
+
+                    const redirectUri = getRedirectUri();
+                    liff.login({ redirectUri });
+                } catch (error) {
+                    // Handle initialization or login errors
                 }
             }
+
+        function getRedirectUri() {
+            const baseUri = "https://htmlqrcodetest.netlify.app/";
+            return baseUri;
+        }
+
         main()
     </script>
 </body>
