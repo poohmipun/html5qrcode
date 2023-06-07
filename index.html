@@ -31,19 +31,12 @@
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
             async function main() {
-                const liffId = '1661306848-QNJMJ1qR';
-
-                try {
-                    await liff.init({ liffId });
-                    if (!(await liff.isLoggedIn())) {
-                        liff.login;
-                    }
-                } catch (error) {
-                    console.log(error)
+                await liff.init({ liffId: '1661306848-QNJMJ1qR' });
+                if (!liff.isLoggedIn()) {
+                    liff.login()
                 }
             }
-
-        main();
+        main()
     </script>
 
 </body>
