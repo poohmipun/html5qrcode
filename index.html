@@ -31,24 +31,17 @@
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
             async function main() {
-                const liffId = '1661306848-yPVLVojM';
+                const liffId = '1661306848-QNJMJ1qR';
 
                 try {
                     await liff.init({ liffId });
                     if (!(await liff.isLoggedIn())) {
-                        const redirectUri = getRedirectUri();
-                        console.log(redirectUri)
-                        liff.login({ redirectUri });
+                        liff.login;
                     }
                 } catch (error) {
                     console.log(error)
                 }
             }
-
-        function getRedirectUri() {
-            const baseUri = "https://htmlqrcodetest.netlify.app";
-            return baseUri;
-        }
 
         main();
     </script>
