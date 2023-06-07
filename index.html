@@ -60,10 +60,8 @@
              }); */
             async function main() {
                 await liff.init({ liffId: '1661306848-yPVLVojM' });
-                if (liff.isLoggedIn()) {
-                    alert("Log in")
-                } else {
-                    liff.login({ redirectUri: "https://htmlqrcodetest.netlify.app/" })
+                if (!liff.isLoggedIn()) {
+                    liff.login({ redirectUri: "https://htmlqrcodetest.netlify.app" })
                 }
             }
         main()
