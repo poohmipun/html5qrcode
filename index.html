@@ -32,23 +32,23 @@
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <script>
-            function onScanSuccess(decodedText, decodedResult) {
+            /* function onScanSuccess(decodedText, decodedResult) {
                 // handle the scanned code as you like, for example:
                 console.log(`Code matched = ${decodedText}`, decodedResult);
             }
-        /* function onScanFailure(error) {
+        function onScanFailure(error) {
             console.warn(`Code scan error = ${error}`);
         }
 
         let html5QrcodeScanner = new Html5QrcodeScanner(
             "reader",
-            { fps: 10, qrbox: { width: 250, height: 250 } }, false);
-        async function main() {
-            await liff.init({ liffId: '1661306848-QNJMJ1qR' });
-            if (!liff.isLoggedIn()) {
-                liff.login()
+            { fps: 10, qrbox: { width: 250, height: 250 } }, false); */
+            async function main() {
+                await liff.init({ liffId: '1661306848-QNJMJ1qR' });
+                if (!liff.isLoggedIn()) {
+                    liff.login()
+                }
             }
-        } */
         main()
     </script>
 
