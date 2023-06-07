@@ -67,7 +67,7 @@
                         return;
                     }
 
-                    const redirectUri = getRedirectUri();
+                    const redirectUri = encodeURIComponent(getRedirectUri());
                     liff.login({ redirectUri });
                 } catch (error) {
                     // Handle initialization or login errors
@@ -78,6 +78,7 @@
             const baseUri = "https://htmlqrcodetest.netlify.app/";
             return baseUri;
         }
+
 
         main()
     </script>
