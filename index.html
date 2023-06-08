@@ -20,7 +20,10 @@
                 <option value="example-style-2">Example custom style 2</option>
             </select>
         </label>
-
+        <label>
+            <input id="show-scan-region" type="checkbox">
+            Show scan region canvas
+        </label>
     </div>
     <div>
         <select id="inversion-mode-select">
@@ -46,9 +49,6 @@
         <button id="flash-toggle">📸 Flash: <span id="flash-state">off</span></button>
     </div>
     <br>
-    <b>Detected QR code: </b>
-    <span id="cam-qr-result">None</span>
-    <br>
     <b>Last detected at: </b>
     <span id="cam-qr-result-timestamp"></span>
     <br>
@@ -56,7 +56,7 @@
     <button id="stop-button">Stop</button>
     <hr>
 
-
+    <span id="file-qr-result">None</span>
 
     <!--<script src="../qr-scanner.umd.min.js"></script>-->
     <!--<script src="../qr-scanner.legacy.min.js"></script>-->
@@ -77,9 +77,12 @@
 
         function setResult(label, result) {
             console.log(result.data);
-            camQrResult.textContent = result.data;
+            label.textContent = result.data;
+            document.querySelector('#file-qr-result').innerHTML = result.data;
             camQrResultTimestamp.textContent = new Date().toString();
             label.style.color = 'teal';
+            clearTimeout(label.highlightTimeout);
+            label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
         }
 
         // ####### Web Cam Scanning #######
